@@ -1,4 +1,4 @@
-import { observable, action } from "mobx";
+import { observable } from "mobx";
 
 
 class AllStudents {
@@ -15,88 +15,55 @@ class AllStudents {
       age: "20"
     },
     {
-      name: "Mona",
+      name: "Lila",
       age: "20"
     },
   ];
-  newAge = "";
-  newName= "";
 
-//updateAge
-@action
-  updateAge = e => {
-    this.newAge = e.target.value;
-     console.log(e.target.value);
- }
+  @observable
+  age = '' ;
 
- //updateRow
- @action
-   updateName = (e) => {
-     this.newName = e.target.value;
-       console.log(e.target.value);
-   }
+  @observable
+  current = '' ;
 
-  // @action
-  //   removeItem(cartItem) {
-  //    this.Items = this.Items.filter(item => {
-  //     if(item.id !== cartItem.id){
-  //       return true ;
-  //     }else{
-  //       return false
-  //     }
-  //   })
-  //   }
-  //
-  //   @action
-  //   addItem(cartItem) {
-  //     this.Items.map(item => {
-  //       if (item.id === cartItem.id) {
-  //         console.log("item click",item);
-  //         // Items.push({id: item.id, productName: item.name, productPrice: item.price, productQuantity: 1})
-  //       }
-  //     });
-  //   }
+  //update age
+  @observable
+   updateAge = e => {
+    this.age = e.target.value ;
+      // console.log(e.target.value);
+  }
 
-  //addRow
-//
-//     addRow = (e) => {
-//       e.preventDefault();
-//       // let current = this.state.current;
-//       // let age = this.state.age;
-//       let lists = this.state.lists ;
-//       lists.push({name : this.newName , age: this.newAge});
-//       this.setState({
-//         lists : lists ,
-//         current: '',
-//         age : ''
-//       })
-//     }
-//
-//   //Delete Row
-//
-//   deleteRow = (index) => {
-//     let lists = this.state.lists;
-//     lists.splice(index,1);
-//     this.setState({
-//       lists
-//     })
-//   }
-//
-//
-//   //Edit Row
-//
-//   editRow = (index , value , age ) => {
-//   let lists = this.state.lists ;
-//   let list = lists[index];
-//   list['name'] = value ;
-//   list['age'] = age ;
-//   this.setState({
-//     lists
-//   })
-//
-//   }
-//
-// }
+  //updateRow
+  @observable
+    updateName = (e) => {
+      this.current = e.target.value ;
+        // console.log(e.target.value);
+    }
+
+
+//addRow
+@observable
+  addRow = (e) => {
+    e.preventDefault();
+    let lists = this.students;
+    lists.push({name : this.current , age: this.age})
+  }
+
+  //Delete Row
+  @observable
+  deleteRow = (index) => {
+    let lists = this.students;
+    lists.splice(index,1);
+  }
+
+  //Edit Row
+  @observable
+  editRow = (index , value , age ) => {
+  let lists = this.students ;
+  let list = lists[index];
+  list['name'] = value ;
+  list['age'] = age ;
+  }
 }
 
 const studentsStore = new AllStudents();
