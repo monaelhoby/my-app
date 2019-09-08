@@ -45,8 +45,13 @@ class AllStudents {
 @observable
   addRow = (e) => {
     e.preventDefault();
-    let lists = this.students;
-    lists.push({name : this.current , age: this.age})
+   console.log(this.current);
+    if(this.current === "" || this.age === ""){
+     alert('Please complete all feilds');
+    }else{
+      let lists = this.students;
+      lists.push({name : this.current , age: this.age});
+    }
   }
 
   //Delete Row
