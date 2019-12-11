@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+  background: #07918d;
+  padding-top:120px;
+  padding-bottom:120px
+}
+header{
+  font-size: 36px;
+  color:#FFF;
+  font-weight:bold;
+  margin-bottom:60px
+}
+.span1{
+    display:inline-block;
+    width: 28% ;
+    margin-right: 2% ;
+    background: #FFF ;
+    padding: 8px 5px 10px ;
+    border-radius: 5px
+}
+.span2{
+    display: inline-block  ;
+    width: 28%  ;margin-right: 2%  ;
+    background: #FFF  ;
+    padding: 8px 5px 10px  ;
+    border-radius: 5px
+}
+.buttonAdd{
+    background:  #7f2a65  !important;
+    display: inline-block  !important;
+    width: 18%  !important;
+    color: #FFF  !important;
+    margin-right: 1%   !important;
+    padding: 7px  !important;
+}
